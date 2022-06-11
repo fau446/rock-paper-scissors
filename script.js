@@ -30,44 +30,6 @@ function playRound (playerSelection, computerSelection) {
     }
 }
 
-/* Function that plays a 5 round game
-    Keeps track of the player's wins and losses
-    Declares a winner at the end
-
-    Initialize a wins variable to track the number of times the player wins
-    Initialize a losses variable to track the number of losses the player has
-    FOR loop to play the game for 5 rounds
-        Prompts the user with "Please type in your selection: rock, paper, or scissors"
-        Runs playRound() and stores the result in a variable result (1 for winning, 0 for losing)
-        IF to check if round is won or lost
-            wins++ if result === 1
-            losses++ if result === 0
-    IF wins > losses: player wins
-    ELSE IF losses < wins: computer wins
-    ELSE: it's a tie
-*/
-/*
-function game() {
-    let wins = 0;
-    let losses = 0;
-
-    let results = buttons;
-    if (results === "win") {
-        wins++;
-    } else if (results === "lose") {
-        losses++;
-    }
-
-    if (wins > losses) {
-        console.log(`The final score is ${wins} to ${losses}. You win!`);
-    } else if (wins < losses) {
-        console.log(`The final score is ${wins} to ${losses}. You lose!`);
-    } else {
-        console.log(`The final score is ${wins} to ${losses}. Too bad, it's a tie!`);
-    }
-}
-*/
-
 // Buttons
 let wins = 0;
 let losses = 0;
