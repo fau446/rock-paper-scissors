@@ -46,19 +46,16 @@ function playRound (playerSelection, computerSelection) {
     ELSE IF losses < wins: computer wins
     ELSE: it's a tie
 */
-
+/*
 function game() {
     let wins = 0;
     let losses = 0;
 
-    for (i = 0; i < 5; i++) {
-        let playerSelection = prompt("Please type in your selection: rock, paper, or scissors");
-        let results = playRound(playerSelection, computerPlay());
-        if (results === "win") {
-            wins++;
-        } else if (results === "lose") {
-            losses++;
-        }
+    let results = buttons;
+    if (results === "win") {
+        wins++;
+    } else if (results === "lose") {
+        losses++;
     }
 
     if (wins > losses) {
@@ -69,5 +66,53 @@ function game() {
         console.log(`The final score is ${wins} to ${losses}. Too bad, it's a tie!`);
     }
 }
+*/
 
-game();
+// Buttons
+let wins = 0;
+let losses = 0;
+
+const score = document.querySelector('#score');
+
+const selections = document.querySelectorAll('.selection');
+selections.forEach((selection) => {
+    selection.addEventListener('click', () => {
+        let results = playRound(selection.textContent, computerPlay());
+        if (results === "win") {
+            wins++;
+        } else if (results === "lose") {
+            losses++;
+        }
+
+        score.textContent = `Wins: ${wins} Losses: ${losses}`;
+
+        if (wins === 5 || losses === 5) {
+            if (wins === 5) {
+                score.textContent = `The final score is ${wins} to ${losses}. You win!`;
+            } else if (losses === 5) {
+                score.textContent = `The final score is ${wins} to ${losses}. You lose!`;
+            }
+            const game = document.querySelector('#game');
+            const reset = document.createElement('button');
+            reset.textContent = "Play Again!";
+            reset.addEventListener('click', () => {
+                wins = 0;
+                losses = 0;
+                score.textContent = "Wins: 0 Losses: 0";
+                reset.style.display = 'none';
+            })
+            game.appendChild(reset);
+            
+        }
+
+
+    })
+})
+
+
+
+
+
+//game function should be active at all times
+//after the game is over, a button should pop up to play the game again.
+//(maybe use a while loop in game()?)
